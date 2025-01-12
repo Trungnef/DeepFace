@@ -171,9 +171,35 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
     )
     select_target_button.place(relx=0.6, rely=0.4, relwidth=0.3, relheight=0.1)
 
+
+
+    # --- Options Frame ---
+    options_frame = ctk.CTkFrame(root, fg_color="transparent")
+    # options_frame.place(relx=0.1, rely=0.55, relwidth=0.8, relheight=0.25)
+
+    def toggle_options(button, frame):
+        if frame.winfo_ismapped():
+            frame.place_forget()
+            button.configure(text="Show Options")
+        else:
+            frame.place(relx=0.1, rely=0.55, relwidth=0.8, relheight=0.25)  # Restore original position
+            button.configure(text="Hide Options")
+
+    scrollable_options_frame = ctk.CTkScrollableFrame(options_frame)
+    scrollable_options_frame.pack(expand=True, fill="both")
+
+    options_button = ctk.CTkButton(
+        root, 
+        text="Show Options",
+        command=lambda: toggle_options(options_button, options_frame),
+    )
+    options_button.place(relx=0.1, rely=0.5, relwidth=0.8, relheight=0.05)
+
+
+
     keep_fps_value = ctk.BooleanVar(value=modules.globals.keep_fps)
     keep_fps_checkbox = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Keep fps",
         variable=keep_fps_value,
         cursor="hand2",
@@ -182,11 +208,11 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             save_switch_states(),
         ),
     )
-    keep_fps_checkbox.place(relx=0.1, rely=0.6)
+    keep_fps_checkbox.pack(pady=5, anchor="w")
 
     keep_frames_value = ctk.BooleanVar(value=modules.globals.keep_frames)
     keep_frames_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Keep frames",
         variable=keep_frames_value,
         cursor="hand2",
@@ -195,11 +221,11 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             save_switch_states(),
         ),
     )
-    keep_frames_switch.place(relx=0.1, rely=0.65)
+    keep_frames_switch.pack(pady=5, anchor="w")
 
     enhancer_value = ctk.BooleanVar(value=modules.globals.fp_ui["face_enhancer"])
     enhancer_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Face Enhancer",
         variable=enhancer_value,
         cursor="hand2",
@@ -208,11 +234,11 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             save_switch_states(),
         ),
     )
-    enhancer_switch.place(relx=0.1, rely=0.7)
+    enhancer_switch.pack(pady=5, anchor="w")
 
     keep_audio_value = ctk.BooleanVar(value=modules.globals.keep_audio)
     keep_audio_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Keep audio",
         variable=keep_audio_value,
         cursor="hand2",
@@ -221,11 +247,11 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             save_switch_states(),
         ),
     )
-    keep_audio_switch.place(relx=0.6, rely=0.6)
+    keep_audio_switch.pack(pady=5, anchor="w")
 
     many_faces_value = ctk.BooleanVar(value=modules.globals.many_faces)
     many_faces_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Many faces",
         variable=many_faces_value,
         cursor="hand2",
@@ -234,11 +260,11 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             save_switch_states(),
         ),
     )
-    many_faces_switch.place(relx=0.6, rely=0.65)
+    many_faces_switch.pack(pady=5, anchor="w")
 
     color_correction_value = ctk.BooleanVar(value=modules.globals.color_correction)
     color_correction_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Fix Blueish Cam",
         variable=color_correction_value,
         cursor="hand2",
@@ -247,15 +273,12 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             save_switch_states(),
         ),
     )
-    color_correction_switch.place(relx=0.6, rely=0.70)
+    color_correction_switch.pack(pady=5, anchor="w")
 
-    #    nsfw_value = ctk.BooleanVar(value=modules.globals.nsfw_filter)
-    #    nsfw_switch = ctk.CTkSwitch(root, text='NSFW filter', variable=nsfw_value, cursor='hand2', command=lambda: setattr(modules.globals, 'nsfw_filter', nsfw_value.get()))
-    #    nsfw_switch.place(relx=0.6, rely=0.7)
 
     map_faces = ctk.BooleanVar(value=modules.globals.map_faces)
     map_faces_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Map faces",
         variable=map_faces,
         cursor="hand2",
@@ -264,11 +287,11 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             save_switch_states(),
         ),
     )
-    map_faces_switch.place(relx=0.1, rely=0.75)
+    map_faces_switch.pack(pady=5, anchor="w")
 
     show_fps_value = ctk.BooleanVar(value=modules.globals.show_fps)
     show_fps_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Show FPS",
         variable=show_fps_value,
         cursor="hand2",
@@ -277,21 +300,21 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             save_switch_states(),
         ),
     )
-    show_fps_switch.place(relx=0.6, rely=0.75)
+    show_fps_switch.pack(pady=5, anchor="w")
 
     mouth_mask_var = ctk.BooleanVar(value=modules.globals.mouth_mask)
     mouth_mask_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Mouth Mask",
         variable=mouth_mask_var,
         cursor="hand2",
         command=lambda: setattr(modules.globals, "mouth_mask", mouth_mask_var.get()),
     )
-    mouth_mask_switch.place(relx=0.1, rely=0.55)
+    mouth_mask_switch.pack(pady=5, anchor="w")
 
     show_mouth_mask_box_var = ctk.BooleanVar(value=modules.globals.show_mouth_mask_box)
     show_mouth_mask_box_switch = ctk.CTkSwitch(
-        root,
+        scrollable_options_frame,
         text="Show Mouth Mask Box",
         variable=show_mouth_mask_box_var,
         cursor="hand2",
@@ -299,7 +322,15 @@ def create_root(start: Callable[[], None], destroy: Callable[[], None]) -> ctk.C
             modules.globals, "show_mouth_mask_box", show_mouth_mask_box_var.get()
         ),
     )
-    show_mouth_mask_box_switch.place(relx=0.6, rely=0.55)
+    show_mouth_mask_box_switch.pack(pady=5, anchor="w")
+
+
+    options_frame.place_forget() # Hide initially
+
+
+    # --- Rest of the UI elements ---
+    # ... (start button, preview button, camera selection, status label, donate label)
+    options_frame.place(relx=0.1, rely=0.55, relwidth=0.8, relheight=0.25)
 
     start_button = ctk.CTkButton(
         root, text="Start", cursor="hand2", command=lambda: analyze_target(start, root)
