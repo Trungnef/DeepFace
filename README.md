@@ -1,6 +1,6 @@
-# DeepFaceLive: AI-Powered Face Swapping and Enhancement
+# DeepFace: AI-Powered Face Swapping and Enhancement
 
-[![Python 3.10 above]
+[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 DeepFace is a user-friendly application that uses artificial intelligence to seamlessly swap faces in images and videos. You can also enhance face quality using advanced AI techniques, filter out unsuitable content, and even perform real-time face swaps using your webcam.
@@ -31,7 +31,7 @@ DeepFace is a user-friendly application that uses artificial intelligence to sea
     ```
 
 3.  **Install Tools:** Make sure your computer has the necessary tools.
-  - First, just crate your own env
+  - First, just create your own env
     ```bash
     python -m venv .venv
     ```
@@ -49,8 +49,11 @@ DeepFace is a user-friendly application that uses artificial intelligence to sea
     Make sure FFmpeg is added to your system's PATH, so it can be found by the program.
 
     And use 2 models from HuggingFace here:
-      5.1. [GFPGANv1.4](https://huggingface.co/hacksider/deep-live-cam/resolve/main/GFPGANv1.4.pth)
-      5.2. [inswapper_128.onnx](https://huggingface.co/hacksider/deep-live-cam/resolve/main/inswapper_128.onnx)
+    
+     5.1. [GFPGANv1.4](https://huggingface.co/hacksider/deep-live-cam/resolve/main/GFPGANv1.4.pth)
+
+     5.2. [inswapper_128.onnx](https://huggingface.co/hacksider/deep-live-cam/resolve/main/inswapper_128.onnx)
+
     Remember place these files in the "**/models**" folder.
 
 ## How to Use DeepFace
