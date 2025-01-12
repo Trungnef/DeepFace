@@ -46,6 +46,7 @@ DeepFace is a user-friendly application that uses artificial intelligence to sea
 
 5.  **Install FFmpeg:**
     DeepFace uses FFmpeg to process videos. Download and install FFmpeg if you don't have it: [https://ffmpeg.org/](https://ffmpeg.org/).
+
     Make sure FFmpeg is added to your system's PATH, so it can be found by the program.
 
     And use 2 models from HuggingFace here:
