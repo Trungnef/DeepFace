@@ -1,6 +1,6 @@
 # DeepFace: AI-Powered Face Swapping and Enhancement
 
-[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+[![Python 3.10](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 DeepFace is a user-friendly application that uses artificial intelligence to seamlessly swap faces in images and videos. You can also enhance face quality using advanced AI techniques, filter out unsuitable content, and even perform real-time face swaps using your webcam.
@@ -49,13 +49,17 @@ DeepFace is a user-friendly application that uses artificial intelligence to sea
 
     Make sure FFmpeg is added to your system's PATH, so it can be found by the program.
 
-    And use 2 models from HuggingFace here:
+    And using 2 models from HuggingFace sau nhó:
     
      5.1. [GFPGANv1.4](https://huggingface.co/hacksider/deep-live-cam/resolve/main/GFPGANv1.4.pth)
 
      5.2. [inswapper_128.onnx](https://huggingface.co/hacksider/deep-live-cam/resolve/main/inswapper_128.onnx)
 
     Remember place these files in the "**/models**" folder.
+
+    - Python (3.10 above recommended)
+    - [ffmpeg one-click thôi nẹ lắm nhen](https://www.youtube.com/watch?v=OlNWCpFdVMA) 
+    - [Visual Studio 2022 Runtimes (Windows)](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
 ## How to Use DeepFace
 
@@ -66,12 +70,13 @@ DeepFace is a user-friendly application that uses artificial intelligence to sea
     ```bash
     python run.py
     ```
-  - with your GPU (Recommend mượt như sunshine)
+  - with your GPU (Recommended mượt như sunshine)
     ```bash
     python run.py --execution-provider cuda
     ```
 
 2.  **Choose Images/Videos:** Use the buttons to select the image or video containing the face you want to swap *from* (source) and the image or video where you want to swap *to* (target).
+
 3.  **Adjust Settings:** Click "Show Options" to access additional settings:
     *   **Keep fps**: Keep original frame rate for video
     *   **Keep audio**: Keep audio of target video
@@ -82,8 +87,11 @@ DeepFace is a user-friendly application that uses artificial intelligence to sea
     *   **Show FPS:** Shows the frame rate of the webcam preview
     *    **Mouth Mask**: Applies a mask around the mouth for better blending
     *   **Show Mouth Mask Box:** Visualizes the mouth mask area (for adjustments).
+
 4.  **Start Processing:** Click "Start" to begin face swapping or enhancing.
+
 5.  **Preview:** If you want to see a test result on a single frame, click "Preview".
+
 6.  **Live Face Swap:**  Choose your camera from the dropdown menu and then select "Live" to start real-time face swapping with your webcam.
 
 ### Method 2: Advanced Command Line
