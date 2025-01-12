@@ -1,6 +1,6 @@
 # DeepFace: AI-Powered Face Swapping and Enhancement
 
-[![Python 3.10](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+[![Python 3.13](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/downloads/release/python-3131/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 DeepFace is a user-friendly application that uses artificial intelligence to seamlessly swap faces in images and videos. You can also enhance face quality using advanced AI techniques, filter out unsuitable content, and even perform real-time face swaps using your webcam.
